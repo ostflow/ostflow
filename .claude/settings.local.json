@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem *)",
+      "Bash(dir C:\\\\Users\\\\nevsa\\\\tekliflix\\\\src\\\\lib\\\\supabase)",
+      "Bash(dir C:\\\\Users\\\\nevsa\\\\ostflow *)",
+      "Bash(dir C:\\\\Users\\\\nevsa\\\\tekliflix\\\\src\\\\lib\\\\supabase *)",
+      "Bash(dir *)",
+      "Bash([ -f \"C:/Users/nevsa/ostflow/$f\" ])"
+    ]
+  }
+}
