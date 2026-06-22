@@ -7,7 +7,9 @@
       "Bash(dir C:\\\\Users\\\\nevsa\\\\tekliflix\\\\src\\\\lib\\\\supabase *)",
       "Bash(dir *)",
       "Bash([ -f \"C:/Users/nevsa/ostflow/$f\" ])",
-      "Bash(Test-Path *)"
+      "Bash(Test-Path *)",
+      "PowerShell(Get-ChildItem C:\\\\Users\\\\nevsa\\\\ostflow -Recurse -Depth 3 | Where-Object { $_.PSIsContainer } | Select-Object FullName | Where-Object { $_.FullName -notmatch 'node_modules|\\\\.next|\\\\.git' })",
+      "PowerShell(Get-ChildItem *)"
     ]
   }
 }

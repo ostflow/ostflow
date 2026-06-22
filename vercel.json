@@ -4,5 +4,8 @@
       "path": "/api/cron/exchange-rates",
       "schedule": "0 6 * * *"
     }
-  ]
+  ],
+  "env": {
+    "STRIPE_WEBHOOK_SECRET": "@stripe_webhook_secret"
+  }
 }
