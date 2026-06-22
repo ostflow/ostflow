@@ -1,6 +1,6 @@
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
-libratom==0.6.7
+libratom==0.7.1
 supabase==2.9.0
 boto3==1.35.0
 python-dotenv==1.0.1
