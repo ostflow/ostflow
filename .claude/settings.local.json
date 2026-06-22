@@ -6,7 +6,8 @@
       "Bash(dir C:\\\\Users\\\\nevsa\\\\ostflow *)",
       "Bash(dir C:\\\\Users\\\\nevsa\\\\tekliflix\\\\src\\\\lib\\\\supabase *)",
       "Bash(dir *)",
-      "Bash([ -f \"C:/Users/nevsa/ostflow/$f\" ])"
+      "Bash([ -f \"C:/Users/nevsa/ostflow/$f\" ])",
+      "Bash(Test-Path *)"
     ]
   }
 }
