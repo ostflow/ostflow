@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { getCurrentOrganizationServer } from '@/lib/supabase/get-organization-server'
 import { generateProposalPdf } from '@/lib/generate-pdf'
 import type { Proposal, Organization } from '@/types'
@@ -9,16 +9,16 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   if (!user || !organizationId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   const { id } = await params
-  const supabase = await createClient()
+  const admin = createAdminClient()
 
   const [{ data: proposal }, { data: org }] = await Promise.all([
-    supabase
+    admin
       .from('proposals')
       .select('*, customer:customers(*), proposal_items(*)')
       .eq('id', id)
       .eq('organization_id', organizationId)
       .single(),
-    supabase
+    admin
       .from('organizations')
       .select('*')
       .eq('id', organizationId)

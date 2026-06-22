@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { getCurrentOrganizationServer } from '@/lib/supabase/get-organization-server'
 import { generateProposalPdf } from '@/lib/generate-pdf'
 import type { Proposal, Organization } from '@/types'
@@ -14,15 +14,15 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   if (!body.to) return NextResponse.json({ error: 'to email required' }, { status: 400 })
 
-  const supabase = await createClient()
+  const admin = createAdminClient()
   const [{ data: proposal }, { data: org }] = await Promise.all([
-    supabase
+    admin
       .from('proposals')
       .select('*, customer:customers(*), proposal_items(*)')
       .eq('id', id)
       .eq('organization_id', organizationId)
       .single(),
-    supabase
+    admin
       .from('organizations')
       .select('*')
       .eq('id', organizationId)
@@ -73,7 +73,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   })
 
   // Log to proposal_email_logs
-  await supabase.from('proposal_email_logs').insert({
+  await admin.from('proposal_email_logs').insert({
     proposal_id: id,
     organization_id: organizationId,
     sent_by: user.id,
