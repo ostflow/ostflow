@@ -1,7 +1,8 @@
-fastapi==0.100.0
-uvicorn[standard]==0.23.2
-libratom==0.7.1
-typing-extensions==4.4.0
+fastapi
+uvicorn[standard]
+libpff-python-ratom
 supabase==2.9.0
 boto3==1.35.0
 python-dotenv==1.0.1
+beautifulsoup4
+striprtf
